@@ -10,7 +10,9 @@ console.log('Running weather.js')
 Level 1
 
 Code: 
-  Write a function called "getAverageTemps" that returns an array of all the average temperatures.
+  Write a function called "getAverageTemps"
+   that returns an array 
+   of all the average temperatures.
 
 Invoke: 
   To print the value your function returns and confirm it is correct, invoke your function within a console.log().
@@ -22,12 +24,32 @@ Annotate:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
 
+function getAverageTemps() {
+  temps = []
 
+  weather.forEach((w) => {
+    temps.push(w.temperature)
+  })
+
+  avgTemps = temps.map((temp) => {
+    return (temp.high + temp.low) / 2
+  })
+  
+  return avgTemps
+}
+
+// console.log(getAverageTemps())
+
+// I started with a forEach loop to pull out the temperatures from the original weather array. Once those temps were separated in their own array, I was able to run a .map to take each high and low, add them together, and divide the total by two.
+// The final result is an array with average temps for each weather object in the array.
 /*
 Level 2
 
 Code: 
-  Write a function called "findSunnySpots" that returns an array of sentences of the locations that are sunny and mostly sunny. Include the location and weather type.
+  Write a function called "findSunnySpots" 
+  that returns an array of sentences 
+  of the locations that are sunny and mostly sunny. 
+  Include the location and weather type.
 
 Invoke:
   To print the value your function returns and confirm it is correct, invoke your function within a console.log().
@@ -42,6 +64,34 @@ e.g.
 Annotation:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
+// const weather = [
+//   {
+//       location: 'Denver, Colorado',
+//       type: 'clear',
+//       humidity: 59,
+//       temperature: {
+//           high: 47,
+//           low: 33
+//       }
+//   }
+
+  // First I need to filter the array for all .type with sunny or mostly sunny
+  // Next, I need to take each of those and concatenate their locations and weather types into singluar strings possibly a .map
+  // Finally, I need to return the result.
+
+// function findSunnySpots() {
+//   sunnyWeather = weather.filter((w) => {
+//     return w.type === "sunny" || w.type === "mostly sunny"
+//   })
+
+//   sunnySpots = sunnyWeather.map((sunnyw) => {
+//     return sunnyw.location + " " + sunnyw.type + "."
+//   })
+
+//   return sunnySpots
+// }
+
+// console.log(findSunnySpots())
 
 
 /*
@@ -66,13 +116,28 @@ Annotation:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
 
+// filter or sort the array for the object with the highest humidity
+// I could sort and then pull the first element if I sort highest to lowest
 
-  
+// function findHighestHumidity() {
+//   let sortedHumidity = [...weather]
+//   sortedHumidity.sort((a,b) => {
+//     return b.humidity - a.humidity
+//   })
+
+//   return sortedHumidity[0]
+// }
+
+// console.log(findHighestHumidity())
+
 /*
 Level 4
 
 Code: 
-  Write a function called "findByType" that takes in two arguments - the array of weather data and a specified weather type ("sunny", "cloudy", etc).  The function should return an array with a sentence for each spot that has any degree of the specified weather type. (Note: "sunny" should return locations that are sunny and mostly sunny)
+  Write a function called "findByType" 
+  that takes in two arguments - the array of weather data and a specified weather type ("sunny", "cloudy", etc).  
+  The function should return an array with a sentence for each spot that has any degree of the specified weather type. 
+  (Note: "sunny" should return locations that are sunny and mostly sunny)
 
 Invoke: 
   To print the value your function returns and confirm it is correct, invoke your function within a console.log().
@@ -100,6 +165,21 @@ e.g.
 Annotate:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
+
+function findByType(array, typeOfWeather) {
+  isType = array.filter((t) => {
+    return array.type === typeOfWeather
+  })
+
+  console.log(isType)
+}
+
+findByType(weather, "sunny")
+
+NOT DONE 
+
+
+
 
 
 /*

@@ -5,6 +5,8 @@ const { puppers } = require('../datasets/puppers');
 
 console.log('Running kitties.js')
 
+// ALL BUT LEVEL 5 IS COMPLETE
+
 /* Kitty Prompts*/
 
 /*
@@ -23,6 +25,19 @@ Annotate:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
 
+// function findOrangeNames(animals) {
+//   let orangeAnimals = animals.filter((animal) => {
+//     return animal.color === 'orange'
+//   })
+
+//   let orangeAnimalNames = orangeAnimals.map((animal) => {
+//     return animal.name
+//   })
+
+//   return orangeAnimalNames;
+// }
+
+// console.log(findOrangeNames(puppers))
 
 /*
 Level 2
@@ -55,7 +70,16 @@ e.g.
 Annotation:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
+// function sortByAge(animals) {
+//   let sortedAnimals = [...animals]
 
+//   sortedAnimals.sort((a,b) => {
+//     return b.age - a.age
+//   })
+//   return sortedAnimals
+// }
+
+// console.log(sortByAge(puppers))
 
 /*
 Level 3
@@ -82,8 +106,16 @@ e.g.
 
 Annotation:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
-*/
-  
+// */
+// function growUp(animals) {
+//   animals.forEach((animal) => {
+//     animal.age += 2
+//   })
+
+//   return animals
+// }
+
+// console.log(growUp(puppers))
 
 /*
 Level 4
