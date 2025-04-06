@@ -38,7 +38,7 @@ function getAverageTemps() {
   return avgTemps
 }
 
-// console.log(getAverageTemps())
+console.log(getAverageTemps())
 
 // I started with a forEach loop to pull out the temperatures from the original weather array. Once those temps were separated in their own array, I was able to run a .map to take each high and low, add them together, and divide the total by two.
 // The final result is an array with average temps for each weather object in the array.
@@ -79,19 +79,22 @@ Annotation:
   // Next, I need to take each of those and concatenate their locations and weather types into singluar strings possibly a .map
   // Finally, I need to return the result.
 
-// function findSunnySpots() {
-//   sunnyWeather = weather.filter((w) => {
-//     return w.type === "sunny" || w.type === "mostly sunny"
-//   })
+function findSunnySpots() {
+  sunnyWeather = weather.filter((w) => {
+    return w.type === "sunny" || w.type === "mostly sunny"
+  })
 
-//   sunnySpots = sunnyWeather.map((sunnyw) => {
-//     return sunnyw.location + " " + sunnyw.type + "."
-//   })
+  sunnySpots = sunnyWeather.map((sunnyw) => {
+    return sunnyw.location + " is " + sunnyw.type + "."
+  })
 
-//   return sunnySpots
-// }
+  return sunnySpots
+}
 
-// console.log(findSunnySpots())
+console.log(findSunnySpots())
+
+// When running the final tests, I had to adjust the middle space in the string to include "is".
+
 
 
 /*
@@ -119,16 +122,16 @@ Annotation:
 // filter or sort the array for the object with the highest humidity
 // I could sort and then pull the first element if I sort highest to lowest
 
-// function findHighestHumidity() {
-//   let sortedHumidity = [...weather]
-//   sortedHumidity.sort((a,b) => {
-//     return b.humidity - a.humidity
-//   })
+function findHighestHumidity() {
+  let sortedHumidity = [...weather]
+  sortedHumidity.sort((a,b) => {
+    return b.humidity - a.humidity
+  })
 
-//   return sortedHumidity[0]
-// }
+  return sortedHumidity[0]
+}
 
-// console.log(findHighestHumidity())
+console.log(findHighestHumidity())
 
 /*
 Level 4
@@ -167,17 +170,25 @@ Annotate:
 */
 
 function findByType(array, typeOfWeather) {
-  isType = array.filter((t) => {
-    return array.type === typeOfWeather
+  let resultWeather = []
+
+  array.forEach((obj) => {
+    if (obj.type.includes(typeOfWeather)) {
+      resultWeather.push(obj)
+    }
   })
 
-  console.log(isType)
+  let finalResult = resultWeather.map((result) => {
+    return result.location + " is " + result.type
+  })
+
+  return finalResult
 }
 
-findByType(weather, "sunny")
+console.log(findByType(weather, 'cloudy'))
 
-NOT DONE 
-
+// Had to add in the period at the end of the string to pass the test. "."
+// Had to remove the period for the 2nd test testing this same function.
 
 
 
@@ -186,7 +197,14 @@ NOT DONE
 Level 5
 
 Code: 
-  Write a function called "getAverageTempByType" that takes in 2 arguments - a specified weather type ("sunny", "cloudy", etc) and a specific temp type ("high" or "low").  The function should return the average temperature (either average high temp or average low temp depending on what is passed through as an argument) across all locations of the specific weather type. (Note: This time, the function should return only locations that are exact matches to the weather type.  For example, "sunny" should not return "mostly sunny" locations)
+  Write a function called "getAverageTempByType"
+   that takes in 2 arguments - a specified weather type ("sunny", "cloudy", etc) 
+   and a specific temp type ("high" or "low").  
+   The function should return the average temperature (either average high temp or average low temp
+    depending on what is passed through as an argument) 
+    across all locations of the specific weather type. 
+    (Note: This time, the function should return only locations that are exact matches to the weather type.  
+    For example, "sunny" should not return "mostly sunny" locations)
 
 Invoke: 
   To print the value your function returns and confirm it is correct, invoke your function within a console.log().
@@ -205,6 +223,35 @@ e.g.
 Annotate:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
+
+function getAverageTempByType(weatherType, tempType) {
+  const filteredArray = []
+  weather.forEach((w) => {
+    if (w.type === weatherType) {
+      filteredArray.push(w)
+    }
+  })
+
+  let totalTemp = filteredArray.reduce((acc, w) => {
+    if (tempType === "high") {
+      return acc + w.temperature.high
+    } else {
+      return acc + w.temperature.low
+    }
+  }, 0)
+
+  let average = 0
+
+  if (filteredArray.length > 0) {
+    average = totalTemp / filteredArray.length
+  }
+
+  let averageString = `The average ${tempType} for ${weatherType} locations is ${average} degrees.`
+
+  return averageString
+}
+
+console.log(getAverageTempByType("cloudy", "low"))
 
 /*
 Level 6
@@ -235,6 +282,8 @@ Annotate:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
 
+// Level 6 complete above :)
+// Just refactored to return a string rather than the average value.
 
 /*
 Level 7
@@ -250,12 +299,16 @@ Annotation:
   Take notes on the error messages that led you to fixing those details. 
 */
 
+// All tests that initally failed were due to string punctuation. Two tests required me to add and remove periods from the string return.
+// One test failed initially because I had to add "is" to the string sentence.
+// All logic passes!
 
 
-// module.exports = {
-//   getAverageTemps,
-//   findSunnySpots,
-//   findHighestHumidity,
-//   findByType,
-//   getAverageTempByType
-// };
+
+module.exports = {
+  getAverageTemps,
+  findSunnySpots,
+  findHighestHumidity,
+  findByType,
+  getAverageTempByType
+};

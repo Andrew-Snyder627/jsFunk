@@ -25,17 +25,17 @@ Annotate:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
 
-// function findOrangeNames(animals) {
-//   let orangeAnimals = animals.filter((animal) => {
-//     return animal.color === 'orange'
-//   })
+function findOrangeNames(animals) {
+  let orangeAnimals = animals.filter((animal) => {
+    return animal.color === 'orange'
+  })
 
-//   let orangeAnimalNames = orangeAnimals.map((animal) => {
-//     return animal.name
-//   })
+  let orangeAnimalNames = orangeAnimals.map((animal) => {
+    return animal.name
+  })
 
-//   return orangeAnimalNames;
-// }
+  return orangeAnimalNames;
+}
 
 // console.log(findOrangeNames(puppers))
 
@@ -70,14 +70,14 @@ e.g.
 Annotation:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
-// function sortByAge(animals) {
-//   let sortedAnimals = [...animals]
+function sortByAge(animals) {
+  let sortedAnimals = [...animals]
 
-//   sortedAnimals.sort((a,b) => {
-//     return b.age - a.age
-//   })
-//   return sortedAnimals
-// }
+  sortedAnimals.sort((a,b) => {
+    return b.age - a.age
+  })
+  return sortedAnimals
+}
 
 // console.log(sortByAge(puppers))
 
@@ -107,15 +107,20 @@ e.g.
 Annotation:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 // */
-// function growUp(animals) {
-//   animals.forEach((animal) => {
-//     animal.age += 2
-//   })
+function growUp(animals) {
+  animals.forEach((animal) => {
+    animal.age += 2
+  })
 
-//   return animals
-// }
+  let newSort = sortByAge(animals)
 
-// console.log(growUp(puppers))
+  return newSort
+
+}
+
+// console.log(growUp(kitties))
+
+// I need to re order the array oldest to youngest to pass the test.
 
 /*
 Level 4
@@ -167,7 +172,7 @@ e.g.
 Annotation:
   Jot down any takeaways, questions, or reflections about this refactoring.
 */
-
+// All funcitons are now refactored to take in the animal arrays as arguments.
 
 /*
 Level 5
@@ -187,8 +192,8 @@ Annotation:
 
 
 
-// module.exports = {
-//   findOrangeNames,
-//   sortByAge,
-//   growUp
-// };
+module.exports = {
+  findOrangeNames,
+  sortByAge,
+  growUp
+};

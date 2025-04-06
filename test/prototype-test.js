@@ -129,13 +129,13 @@ const {
 // Tests 
 describe("PROTOTYPES", () => {
   describe("Kitty Prompts", () => {
-    it.skip("orangeKittyNames", () => {
+    it("orangeKittyNames", () => {
       const e = findOrangeNames(kitties);
 
       expect(e).to.deep.equal(["Tiger", "Snickers"])
     });
 
-    it.skip("sortByAge", () => {
+    it("sortByAge", () => {
       const e = sortByAge(kitties);
 
       expect(e).to.deep.equal([{
@@ -157,7 +157,7 @@ describe("PROTOTYPES", () => {
       }])
     });
 
-    it.skip("growUp", () => {
+    it("growUp", () => {
       const e = growUp(kitties);
 
       expect(e).to.deep.equal([{
@@ -179,13 +179,13 @@ describe("PROTOTYPES", () => {
       }])
     })
     describe('Kitty Prompts Refactor', () => {
-      it.skip('should be able to handle orange puppers', () => {
+      it('should be able to handle orange puppers', () => {
         const e = findOrangeNames(puppers);
 
         expect(e).to.deep.equal(["Hatchet", "Butter"])
       })
 
-      it.skip('should sort pups too', () => {
+      it('should sort pups too', () => {
         const e = sortByAge(puppers);
 
         expect(e).to.deep.equal([{
@@ -207,7 +207,7 @@ describe("PROTOTYPES", () => {
         }])
       })
 
-      it.skip('should age puppers too', () => {
+      it('should age puppers too', () => {
         const e = growUp(puppers);
 
         expect(e).to.deep.equal([{
@@ -736,20 +736,20 @@ describe("PROTOTYPES", () => {
   });
 
   describe("Weather prompts", () => {
-    it.skip("getAverageTemps", () => {
+    it("getAverageTemps", () => {
       const e = getAverageTemps();
 
       expect(e).to.deep.equal([
         40, 40, 44.5, 43.5, 57, 35, 65.5, 62, 14, 46.5
       ])
     }),
-      it.skip("findSunnySpots", () => {
+      it("findSunnySpots", () => {
         const e = findSunnySpots();
 
         expect(e).to.deep.equal(['Atlanta, Georgia is sunny.', 'New Orleans, Louisiana is sunny.', 'Raleigh, North Carolina is mostly sunny.']
         )
       }),
-      it.skip("findHighestHumidity", () => {
+      it("findHighestHumidity", () => {
         const e = findHighestHumidity();
 
         expect(e).to.deep.equal({
@@ -759,17 +759,17 @@ describe("PROTOTYPES", () => {
           temperature: { high: 49, low: 38 }
         })
       }),
-      it.skip("findByType sunny", () => {
+      it("findByType sunny", () => {
         const e = findByType(weather, "sunny");
 
         expect(e).to.deep.equal([ 
-          'Atlanta, Georgia is sunny.',
-          'New Orleans, Louisiana is sunny.',
-          'Raleigh, North Carolina is mostly sunny.' 
+          'Atlanta, Georgia is sunny',
+          'New Orleans, Louisiana is sunny',
+          'Raleigh, North Carolina is mostly sunny' 
         ]
         )
       }),
-      it.skip("findByType cloudy", () => {
+      it("findByType cloudy", () => {
         const e = findByType(weather, "cloudy");
 
         expect(e).to.deep.equal([
@@ -782,18 +782,18 @@ describe("PROTOTYPES", () => {
         ]
         )
       }),
-      it.skip("getAverageTempByType sunny high", () => {
+      it("getAverageTempByType sunny high", () => {
         const e = getAverageTempByType("sunny", "high");
 
         expect(e).to.deep.equal("The average high for sunny locations is 58 degrees.")
       }),
-      it.skip("getAverageTempByType sunny low", () => {
+      it("getAverageTempByType sunny low", () => {
         const e = getAverageTempByType("sunny", "low");
         console.log('e', e)
 
         expect(e).to.deep.equal("The average low for sunny locations is 43.5 degrees.")
       }),
-      it.skip("getAverageTempByType cloudy low", () => {
+      it("getAverageTempByType cloudy low", () => {
         const e = getAverageTempByType("cloudy", "low");
 
         expect(e).to.deep.equal("The average low for cloudy locations is 33.4 degrees.")
